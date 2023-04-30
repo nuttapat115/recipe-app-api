@@ -10,7 +10,7 @@ from django.test import Client
 class AdminSiteTests(TestCase):
     """Test for Django admin."""
 
-    def serUp(self):
+    def setUp(self):
         """Create user amd client"""
         self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
