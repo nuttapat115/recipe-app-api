@@ -25,12 +25,12 @@ class UserSerializer(serializers.ModelSerializer):
         """Create and return a user with encrypted password."""
         return get_user_model().objects.create_user(**validated_data)
 
-class AuthTokenSerilizer(serializers.Serializer):
+class AuthTokenSerializer(serializers.Serializer):
     """Serilizer for the user authentication token."""
     email = serializers.EmailField()
     password = serializers.CharField(
         style={'input_type': 'password'},
-        trim_witespece=True,
+        trim_whitespace=True,
     )
 
     def validate(self, attrs):
