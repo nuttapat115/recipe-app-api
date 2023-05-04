@@ -81,7 +81,6 @@ class PrivateRecipeTest(TestCase):
         )
         create_recipe(user=other_user)
         create_recipe(user=self.user)
-        print('list:'+ str(RECIPES_URL))
         res = self.client.get(RECIPES_URL)
 
         recipes = Recipe.objects.filter(user=self.user)
@@ -94,12 +93,9 @@ class PrivateRecipeTest(TestCase):
         recipe = create_recipe(self.user)
 
         url = detail_url(recipe.id)
-        print('detail:'+ str(url))
         res = self.client.get(url)
-        print(res.data)
 
         serializer = RecipeDetailsSerializer(recipe)
-        print(serializer.data)
         self.assertEqual(res.data, serializer.data)
 
     def test_create_recipes(self):
