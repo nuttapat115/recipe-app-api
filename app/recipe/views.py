@@ -10,7 +10,7 @@ from recipe import serializers
 
 class RecipeViewSet(viewsets.ModelViewSet):
     """View for manage recipe APIs."""
-    serializer_class = serializers.RecipeDetailsSerializer
+    serializer_class = serializers.RecipeDetailSerializer
     queryset = Recipe.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -20,7 +20,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         return self.queryset.filter(user=self.request.user).order_by('-id')
 
     def get_serializer_class(self):
-        """Return a serializer class for request"""
+        """Return the serializer class for request."""
         if self.action == 'list':
             return serializers.RecipeSerializer
 
