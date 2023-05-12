@@ -9,7 +9,7 @@ from core.models import Ingredient
 
 from recipe.serializers import IngredientSerializer
 
-INGREDIENT_URL = reverse('recipe:ingredients-list')
+INGREDIENT_URL = reverse('recipe:ingredient-list')
 
 def create_uers(email='test@example.com', password='pasaseqweg'):
     return get_user_model().objects.create_user(email=email, password=password)
@@ -40,7 +40,7 @@ class PrivateIngredient(TestCase):
         serializer = IngredientSerializer(inredients, many=True)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(res), 2)
+        self.assertEqual(len(res.data), 2)
         self.assertEqual(res.data, serializer.data)
 
     def test_ingredient_limited_to_user(self):

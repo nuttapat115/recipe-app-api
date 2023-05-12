@@ -47,7 +47,7 @@ class TagViewSet(mixins.DestroyModelMixin,
 
 class IngredientViewSet(mixins.ListModelMixin ,viewsets.GenericViewSet):
 
-    serializer_class = Ingredient
+    serializer_class = serializers.IngredientSerializer
     queryset = Ingredient.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
