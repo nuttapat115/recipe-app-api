@@ -302,7 +302,7 @@ class PrivateRecipeTest(TestCase):
         ingredient = Ingredient.objects.create(user=self.user, name='Coco')
         payload = {
             'title': 'Taco EIEI',
-            'time_minuyes': 60,
+            'time_minutes': 60,
             'price': Decimal('120.02'),
             'ingredients': [{'name': 'Coco'}, {'name': 'EIEI'}],
         }
